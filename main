@@ -1,0 +1,45 @@
+/* Jimmy Lieu
+ * COSC 1337
+ * 01/30/2022
+ * Purpose: To create a program that will output first, middle, and last name using array and strings. To generate a random sequence of letters from the name. (Program1Initials)
+ * Insight: 
+ */
+package program1Initial;
+
+import java.util.Random;
+
+public class Program1Initial {
+
+	public static void main(String[] args) {
+		String [] strings = {"David Lee Alger", "Kate Garry Hudson", "Tina Stamatina Fey", "Hugh Mungo Grant", 
+		"Uma Karuna Thurman"}; 
+		//first line should be String currentName = strings[i]; then perform all manipulations on current name 
+		for (int i = 0; i < strings.length; i++){
+			String currentName = strings[i];
+			int firstSpace = currentName.indexOf(" ");
+			String firstName = currentName.substring(0, firstSpace);
+			System.out.println("Your first name is " +currentName.substring(0, firstSpace)+ " with a length of "+firstName.length());
+			//find a second space in the string with int secondSpace = currentName.lastIndexOf(" "); The middle name is between the two spaces
+			int secondSpace = currentName.lastIndexOf(" ");
+			String middleName = currentName.substring(firstSpace+1, secondSpace);
+			System.out.println("Your middle name is" +currentName.substring(firstSpace, secondSpace)+ " with a length of "+middleName.length());
+			//find last name - it's just substring after the second space until the end!
+			String lastName = currentName.substring(secondSpace);
+			System.out.println("Your last name is" +currentName.substring(secondSpace)+" with a length of "+lastName.length());
+			char firstInitial = currentName.charAt(0);
+			char middleInitial = currentName.charAt(firstSpace+1);
+			char lastInitial = currentName.charAt(secondSpace+1);
+			System.out.println("Your intials are "+firstInitial+middleInitial+lastInitial+ ". The length of your name is " +currentName.length());
+			Random random = new Random();
+			//find a valid startIndex with int startIndex = random.nextInt(currentName.length()-????) (insight)
+			//find substring of currentName from startIndex to startIndex+5
+			int startIndex = random.nextInt(currentName.length()-5);
+			//find substring of currentName from startIndex to startIndex+5
+			System.out.println("A random sequence of 5 letters of your name is " +currentName.substring(startIndex, startIndex + 5));
+			System.out.println();
+		}
+	}
+}
+
+
+
